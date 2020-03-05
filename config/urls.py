@@ -25,6 +25,7 @@ urlpatterns = [
     path('habits/<int:pk>/', views.habits_details, name = 'habits-details'),
     path('habits/new/', views.habits_new, name='habits-new'),
     path('habit/<int:pk>/edit/', views.habits_edit, name = 'habits-edit'),
+    path('habit/<int:pk>/track/', views.track_habit, name = 'habits-track'),
     path('habit/<int:pk>/delete/', views.habits_delete, name = 'habits-delete'),
     path('accounts/', include('registration.backends.default.urls')),
 ]

@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.utils.text import slugify
+import datetime
 
 # Create your models here.
 class Habit(models.Model):
@@ -17,7 +18,7 @@ class Habit(models.Model):
 
 class Record(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
-    date = models.DateField(blank=True, null=True)
+    date = models.DateField(default=datetime.date.today)
     achievement = models.PositiveIntegerField(default=0)
     habit = models.ForeignKey(
         Habit, on_delete=models.CASCADE, related_name='records', blank=True, null=True)

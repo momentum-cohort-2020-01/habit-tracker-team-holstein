@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {% block heading %}
+<h2>Track Habit</h2>
+{% endblock %} {% block content %}
+<div class="void"></div>
+<div class="form-container" class="habit-form">
+  <form method="POST" class="book-form">
+    <h2 class="form-title">Track Habit.</h2>
+    {% csrf_token %} {{ form.as_p }}
+    <button type="submit" class="save btn btn-default">Save</button>
+  </form>
+</div>
+<div class="void"></div>
+{% endblock %}
