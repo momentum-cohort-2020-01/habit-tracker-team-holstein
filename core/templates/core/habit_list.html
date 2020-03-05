@@ -1,1 +1,11 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %} {% block heading %}
+<h2>Welcome to Habit Tracker</h2>
+{% endblock %} {% block content %} {% for habit in habits %}
+<a class="habit-link" href="{% url 'habits-details' habit.pk %}">
+  <div class="habit">
+    <h4 class="habit-title" id="{{habit.pk}}">{{habit.name}}</h4>
+    <p class="habit-goal">{{habit.goal}}</p>
+    <p class="habit-unit">{{habit.unit}}</p>
+  </div>
+</a>
+{% endfor %} {% endblock %}

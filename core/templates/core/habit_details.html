@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% block content %}
+<div class="habit">
+  <div class="top-habit">
+    <h4 class="habit-title">{{habit.name}}</h4>
+    <div class="btn-section">
+      <a class="btn btn-edit" href="{% url 'habits-edit' pk %}">Edit</a>
+      <a class="btn btn-delete" href="{% url 'habits-delete' pk %}">Delete</a>
+    </div>
+    <div class="habit-desc">
+      <p>{{habit.goal}}</p>
+      <p>{{habit.unit}}</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
