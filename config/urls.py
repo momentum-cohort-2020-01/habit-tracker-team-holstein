@@ -21,7 +21,11 @@ from core import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.habit_list, name='habit-list'),
+    path('', views.habit_list, name='habits-list'),
+    path('habits/<int:pk>/', views.habits_details, name = 'habits-details'),
+    path('habits/new/', views.habits_new, name='habits-new'),
+    path('habit/<int:pk>/edit/', views.habits_edit, name = 'habits-edit'),
+    path('habit/<int:pk>/delete/', views.habits_delete, name = 'habits-delete'),
     path('accounts/', include('registration.backends.default.urls')),
 ]
 

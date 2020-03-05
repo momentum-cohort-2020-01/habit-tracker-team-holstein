@@ -25,7 +25,7 @@ class Record(models.Model):
         User, on_delete=models.CASCADE, related_name='records', blank=True, null=True)
 
     def __str__(self):
-        return f"{self.owner.username}'s {self.habit.title} on {self.date}"
+        return f"{self.owner.username}'s {self.habit.name} on {self.date}"
 
     class Meta:
         constraints = [models.UniqueConstraint(fields=['date', 'habit', 'owner'], name='unique_record')]
