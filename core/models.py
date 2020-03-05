@@ -24,7 +24,7 @@ class Record(models.Model):
     owner = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='records', blank=True, null=True)
 
-    def __str__(self):
+    def __str__(self): 
         return f"{self.owner.username}'s {self.habit.name} on {self.date}"
 
     class Meta:

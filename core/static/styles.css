@@ -8,4 +8,32 @@
 body {
   background: rgba(36, 40, 48);
   color: #fff;
+  letter-spacing: 1px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 2rem;
+}
+
+header h2 {
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.mobile-menu,
+.lines {
+  display: none;
+}
+
+.menu a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.menu a:not(:last-child) {
+  margin-right: 1rem;
 }
