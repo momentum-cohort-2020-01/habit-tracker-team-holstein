@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpRequest
-from .forms import HabitForm
-from .models import Habit
+from .forms import HabitForm, RecordForm
+from .models import Habit, Record
 # Create your views here.
 
 
@@ -12,7 +12,8 @@ def habit_list(request):
 
 def habits_details(request, pk):
     habit = get_object_or_404(Habit, pk=pk)
-    return render(request, "core/habit_details.html", {'habit': habit, 'pk':pk})
+    records = Record.objects.filter(habit=habit, owner=request.user)
+    return render(request, "core/habit_details.html", {'habit': habit, 'pk':pk, 'records': records})
 
 
 def habits_edit(request, pk):
@@ -44,4 +45,22 @@ def habits_new(request):
             return redirect('habits-list')
     else:
         form = HabitForm()
+    return render(request, 'core/habit_edit.html', {'form': form})
+
+def track_habit(request, pk):
+    if request.method == "POST":
+        form = RecordForm(request.POST)
+        if form.is_valid():
+            record = form.save(commit=False)
+            record.owner = request.user
+            record.habit = Habit.objects.get(pk=pk)
+            try: 
+                record.save()
+                return redirect('habits-details', pk=pk)
+            except:
+                form = RecordForm()
+                return render(request, 'core/habit_edit.html', {'form': form})
+            
+    else:
+        form = RecordForm()
     return render(request, 'core/habit_edit.html', {'form': form})

@@ -11,6 +11,11 @@ body {
   letter-spacing: 1px;
 }
 
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
 header {
   display: flex;
   align-items: center;
@@ -36,4 +41,77 @@ header h2 {
 
 .menu a:not(:last-child) {
   margin-right: 1rem;
+}
+
+.container {
+  padding: 2rem 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.habit-container {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 541px;
+  margin: 0 auto;
+}
+
+.habit {
+  margin: 0 1rem;
+  background-color: rgb(255, 51, 71);
+  border-radius: 0.25rem;
+  padding: 1rem;
+  color: #fff;
+  text-align: center;
+}
+
+.habit-title,
+.habit-goal,
+.habit-unit {
+  display: inline;
+}
+
+.habit-desc {
+  display: flex;
+}
+
+.habit-desc p:last-child {
+  margin-left: 1rem;
+}
+
+.top-habit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn-section a {
+  text-decoration: none;
+}
+
+.btn-section a:not(:last-child) {
+  margin-right: 1rem;
+}
+
+@media only screen and (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, 50%);
+  }
+
+  .habit {
+    margin: 1rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fill, 100%);
+  }
+
+  .habit {
+    margin: 1rem 0;
+  }
 }
