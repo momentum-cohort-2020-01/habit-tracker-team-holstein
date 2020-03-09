@@ -2,18 +2,21 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Oswald", sans-serif;
+  font-family: "arial";
+  
 }
 
 body {
   background: rgba(36, 40, 48);
   color: #fff;
   letter-spacing: 1px;
+  padding-left: 15px;
 }
 
 a {
   text-decoration: none;
-  color: #fff;
+  color: #fff; 
+  
 }
 
 header {
@@ -28,6 +31,15 @@ header h2 {
   font-size: 25px;
   font-weight: 400;
 }
+
+.form-container {
+  background-color: rgb(255, 51, 71);
+  display: grid;
+  width: 300;
+  height: 100px;
+  
+}
+
 
 .mobile-menu,
 .lines {
@@ -44,15 +56,24 @@ header h2 {
 }
 
 .container {
-  padding: 2rem 1rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 50px 50px 50px;
+  grid-gap: 20px
 }
+
+/* .container {
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 50px
+} */
 
 .habit-container {
   padding: 2rem;
   display: grid;
   grid-template-columns: 1fr;
+
   max-width: 541px;
   margin: 0 auto;
 }
